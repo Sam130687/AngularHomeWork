@@ -1,61 +1,25 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { stars } from './constants/stars'; 
+import { ICartProduct } from '../../../assets/cards/cart-product';
 
 @Component({
-  selector: 'app-star-rating',
-  templateUrl: './star-rating.component.html',
-  styleUrls: ['./star-rating.component.sass']
+	selector: 'app-star-rating',
+	templateUrl: './star-rating.component.html',
+	styleUrls: ['./star-rating.component.css'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class StarRatingComponent implements OnInit {
-  selectedRating = 0;
+export class StarRatingComponent {
+	selectedRating = -1;
+	stars = stars;
 
-  @Input() totalFeedBack: number = 0;
+	@Input() public product: ICartProduct = {} as ICartProduct;
 
-  stars = [
-    {
-      id: 1,
-      icon: 'star',
-      class: 'star-gray star-hover star'
-    },
-    {
-      id: 2,
-      icon: 'star',
-      class: 'star-gray star-hover star'
-    },
-    {
-      id: 3,
-      icon: 'star',
-      class: 'star-gray star-hover star'
-    },
-    {
-      id: 4,
-      icon: 'star',
-      class: 'star-gray star-hover star'
-    },
-    {
-      id: 5,
-      icon: 'star',
-      class: 'star-gray star-hover star'
-    }
-  ];
+	constructor() {}
 
-  constructor() {}
-  ngOnInit(): void {
-  }
-
-  selectStar(value: number): void{
-    // prevent multiple selection
-    this.stars.filter( (star) => {
-      if ( star.id <= value){
-        star.class = 'star-gold star';
-      }else{
-        star.class = 'star-gray star';
-      }
-      return star;
-    });
-
-    if (this.selectedRating === 0) {
-      this.totalFeedBack++;
-    }
-    this.selectedRating = value;    
-  }
+	selectStar(index: number): void {
+		if (this.selectedRating === -1) {
+			this.product.feedbacksCount++;			
+		}
+		this.selectedRating = index;
+	}
 }

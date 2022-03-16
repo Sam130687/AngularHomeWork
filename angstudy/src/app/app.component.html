@@ -1,14 +1,11 @@
-<app-header [storeName]="storeName">
-    <app-basket-num [basketNum]="basketNum"></app-basket-num>
+<app-header 
+    [storeName]="storeName"
+    [basketNum]="basketNum"
+>    
 </app-header>
 <app-goods-grid>
     <app-shop-card 
-        [price]="price"
-        [describe]="describe"
-        [image]="image"
+        [product]="product"
         (orderGood)="orderGood()">
-        <app-star-rating 
-            [totalFeedBack]="totalFeedBack">
-        </app-star-rating>
     </app-shop-card>
 </app-goods-grid>
