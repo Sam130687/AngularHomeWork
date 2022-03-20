@@ -2,10 +2,12 @@
     <mat-icon
         *ngFor="let star of stars index as i"
         class="star-gray star-hover star"
-        [class.star-gold]="i <= selectedRating"
+        [class.star-gold]="i <= (rate ? rate : 0)"
         (click)="selectStar(i)"
     >
         star
     </mat-icon>  
-    {{product?.feedbacksCount}} отзывов.
+    <ng-container *ngIf="feedbacksCount">
+        {{feedbacksCount}} отзывов.
+    </ng-container>
 </div>

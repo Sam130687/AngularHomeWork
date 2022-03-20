@@ -1,13 +1,23 @@
 <mat-card class="example-card" (click)="putOnBusket()">
-    <img mat-card-image [src]="product?.image" alt="product?.name">
+    <!-- тут какая то ошибка со стилями, не пойму как исправить. отображается тока правая стрелка в карусели -->
+    <ng-container *ngIf="product.images as Images">
+      <div
+        *ngxClassworkCarousel="let Image of Images; next as next; back as back"
+        class="shop-container"
+      >
+        <mat-icon class="chevron" (click)="back()">chevron_left</mat-icon>
+        <img mat-card-image [src]="Image.url">
+        <mat-icon class="chevron" (click)="next()">chevron_right</mat-icon>
+      </div>
+    </ng-container>
+    <!-- <img mat-card-image [src]="product.images[0]?.url" alt="product.name"> -->
     <mat-card-content>
-      <p>{{product?.name}}</p>
+      <p>{{product.name}}</p> 
     </mat-card-content>
-    <ng-content select="app-star-rating"></ng-content>
-    <app-star-rating 
-      [product]="product"
+   <app-star-rating 
+      [feedbacksCount]="product.feedbacksCount"
       (click)="$event.stopPropagation()"
-    >      
+    >       
     </app-star-rating>
-    <strong>{{product?.price | currency : product?.format : 'symbol-narrow'}}</strong>
+    <strong>{{product.price | currency}}</strong>
 </mat-card>

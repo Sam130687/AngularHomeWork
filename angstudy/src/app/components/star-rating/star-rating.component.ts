@@ -1,6 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { stars } from './constants/stars'; 
-import { ICartProduct } from '../../../assets/cards/cart-product';
 
 @Component({
 	selector: 'app-star-rating',
@@ -9,17 +8,20 @@ import { ICartProduct } from '../../../assets/cards/cart-product';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StarRatingComponent {
-	selectedRating = -1;
-	stars = stars;
+	readonly stars = stars;
 
-	@Input() public product: ICartProduct = {} as ICartProduct;
+	@Input() public feedbacksCount?: number = 0;
+	@Input() public rate?: number = -1;
+	@Input() public readOnly: boolean = false;
 
 	constructor() {}
 
 	selectStar(index: number): void {
-		if (this.selectedRating === -1) {
-			this.product.feedbacksCount++;			
+		if (!this.readOnly){
+			if (this.rate === -1) {
+				this.feedbacksCount ? this.feedbacksCount++ : 1;
+			}
+			this.rate = index;
 		}
-		this.selectedRating = index;
 	}
 }
