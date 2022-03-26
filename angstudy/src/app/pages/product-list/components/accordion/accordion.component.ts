@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-import { ICategory } from '../../interface/category';
+import { ICategory } from '../../../../interface/category';
 
 @Component({
   selector: 'app-accordion',

@@ -1,5 +1,5 @@
 import { Component, EventEmitter,	Input, Output, ChangeDetectionStrategy } from '@angular/core';
-import { IProduct } from '../../interface/product';
+import { IProduct } from '../../../../interface/product';
 
 @Component({
   selector: 'app-goods-card',

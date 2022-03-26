@@ -16,11 +16,11 @@
     <mat-card-title>
       {{product.name}}
     </mat-card-title>
-    <app-star-rating 
+    <!-- <app-star-rating 
       [feedbacksCount]="product.feedbacksCount"
       (click)="$event.stopPropagation()"
     >      
-    </app-star-rating>   
+    </app-star-rating>    -->
     
     <mat-card-title-group>   
       <div>       
@@ -53,11 +53,11 @@
         <mat-tab label="Отзывы {{product.feedbacksCount}}">
           <mat-list *ngFor="let feedback of product.feedbacks"> 
             <mat-list-item>  
-              <app-star-rating 
+              <!-- <app-star-rating 
                 [readOnly]="true"
                 [rate]="feedback.rate"  
                 (click)="$event.stopPropagation()">      
-              </app-star-rating>
+              </app-star-rating> -->
               <p class="feedback">{{feedback.advantages}}</p>
             </mat-list-item>
           </mat-list> 

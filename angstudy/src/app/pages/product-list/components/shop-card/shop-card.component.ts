@@ -5,7 +5,7 @@ import {
 	Output,
 	ChangeDetectionStrategy,
 } from '@angular/core';
-import { IProduct } from '../../interface/product';
+import { IProduct } from '../../../../interface/product';
 
 @Component({
 	selector: 'app-shop-card',
