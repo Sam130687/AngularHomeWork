@@ -14,16 +14,14 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
 import { PipesModule } from '../../pipes/pipes.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { StarRatingComponent } from '../../components/star-rating/star-rating.component';
-import { CarouselDirective } from '../../directives/carousel.directive';
+import { DirectiveModule } from '../../directives/directives.module';
+import { StarRatingModule } from 'src/app/components/star-rating/star-rating.module';
 
 @NgModule({
   declarations: [
     ProductListComponent,
 		ShopCardComponent,
 		AccordionComponent,
-    StarRatingComponent,		
-		CarouselDirective,
   ],
   imports: [
     CommonModule, 
@@ -37,6 +35,8 @@ import { CarouselDirective } from '../../directives/carousel.directive';
 		MatMenuModule,
     PipesModule,
     MatFormFieldModule,
+    DirectiveModule,
+    StarRatingModule,
   ]
 })
 export class ProductListModule { }

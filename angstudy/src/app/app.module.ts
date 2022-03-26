@@ -16,8 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
-//import { StarRatingComponent } from './components/star-rating/star-rating.component';
-//import { CarouselDirective } from './directives/carousel.directive';
+
 /**
  *  NgModule => es6
  *  declarations => let/const
@@ -30,13 +29,7 @@ import { MatCardModule } from '@angular/material/card';
 		AppComponent,	
 		BasketNumComponent,
 		HeaderComponent,
-	//	StarRatingComponent,		
-		//CarouselDirective,
 	],	
-	// exports: [
-	// 	StarRatingComponent,
-	// 	CarouselDirective,
-	// ],
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,

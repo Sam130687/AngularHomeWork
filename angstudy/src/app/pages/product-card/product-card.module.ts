@@ -8,6 +8,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
+import { DirectiveModule } from 'src/app/directives/directives.module';
+import { StarRatingModule } from 'src/app/components/star-rating/star-rating.module';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { MatListModule } from '@angular/material/list';
     MatIconModule,
     MatTabsModule,
     MatListModule,
+    DirectiveModule,
+    StarRatingModule,
   ]
 })
 export class ProductCardModule { }
