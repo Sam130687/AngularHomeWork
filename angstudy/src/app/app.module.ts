@@ -18,11 +18,16 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { MatMenuModule } from '@angular/material/menu';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GoodsCardComponent } from './components/goods-card/goods-card.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CarouselDirective } from './directives/carousel.directive';
 import { ProductsFilterPipe } from './pipes/products-filter.pipe';
-
+import { ProductsService } from './services/products.service';
+import { BaseInterceptor } from './services/base.interceptor';
+import { CarouselImagesService } from './services/carousel-images.service';
+import { CategoriesService } from './services/categories.service';
+import { ProductCardService } from './services/product-card.service';
 /**
  *  NgModule => es6
  *  declarations => let/const
@@ -39,8 +44,8 @@ import { ProductsFilterPipe } from './pipes/products-filter.pipe';
 		HeaderComponent,
 		AccordionComponent,
 		GoodsCardComponent,
-  CarouselDirective,
-  ProductsFilterPipe,
+		CarouselDirective,
+		ProductsFilterPipe,
 	],
 	imports: [
 		BrowserModule,
@@ -55,7 +60,19 @@ import { ProductsFilterPipe } from './pipes/products-filter.pipe';
 		MatGridListModule,
 		CdkAccordionModule,
 		MatMenuModule,
-		MatTabsModule
+		MatTabsModule,
+		HttpClientModule,
+	],
+	providers: [
+		ProductsService,
+		CarouselImagesService,
+		CategoriesService,
+		ProductCardService,
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: BaseInterceptor,
+			multi: true,
+		},
 	],
 	bootstrap: [AppComponent],
 })
