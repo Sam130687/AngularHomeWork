@@ -13,10 +13,13 @@
   </div> 
 
   <div class="right-side">
-    <mat-card-title>{{product.name}}</mat-card-title>
+    <mat-card-title>
+      {{product.name}}
+    </mat-card-title>
     <app-star-rating 
       [feedbacksCount]="product.feedbacksCount"
-      (click)="$event.stopPropagation()"      >      
+      (click)="$event.stopPropagation()"
+    >      
     </app-star-rating>   
     
     <mat-card-title-group>   
@@ -24,27 +27,33 @@
        <p class="undtitle">Характеристики</p>       
 
         <ul *ngFor="let characteristic of product.characteristics">
-          <li>{{ characteristic.title }}
+          <li>
+            {{ characteristic.title }}
             <ul *ngFor="let item of characteristic.items">
-              <li>{{item.name + ': ' + item.value}}</li>
+              <li>
+                {{item.name + ': ' + item.value}}
+              </li>
             </ul>          
           </li>
         </ul>
       </div>
       <div class="price_button">
-        <strong>{{product?.price | currency}}</strong>
+        <strong>
+          {{product?.price | currency}}
+        </strong>
         <button mat-raised-button color="primary">Добавить в корзину</button>
       </div>  
     </mat-card-title-group>  
 
     <mat-card-footer>
       <mat-tab-group>
-        <mat-tab label="Описание"> {{product.description}} </mat-tab>
+        <mat-tab label="Описание"> 
+          {{product.description}} 
+        </mat-tab>
         <mat-tab label="Отзывы {{product.feedbacksCount}}">
           <mat-list *ngFor="let feedback of product.feedbacks"> 
             <mat-list-item>  
               <app-star-rating 
-                [feedbacksCount]=""
                 [readOnly]="true"
                 [rate]="feedback.rate"  
                 (click)="$event.stopPropagation()">      

@@ -19,7 +19,8 @@
         role="region"
         [style.display]="accordionItem.expanded ? '' : 'none'"
         [attr.id]="'accordion-body-' + index"
-        [attr.aria-labelledby]="'accordion-header-' + index">
+        [attr.aria-labelledby]="'accordion-header-' + index"
+      >
         <mat-nav-list>
           <mat-list-item *ngFor="let link of item.subCategories">
              <a matLine href="...">{{ link.name }}</a>

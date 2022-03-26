@@ -1,8 +1,8 @@
 <div class="star-rating-container star-rating-animation" fxLayout="row" fxLayoutAlign="start center" >
     <mat-icon
-        *ngFor="let star of stars index as i"
+        *ngFor="let star of stars; index as i"
         class="star-gray star-hover star"
-        [class.star-gold]="i <= (rate ? rate : 0)"
+        [class.star-gold]="i <= setRate(rate)"
         (click)="selectStar(i)"
     >
         star

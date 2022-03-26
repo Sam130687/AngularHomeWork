@@ -28,7 +28,8 @@
             <app-shop-card 
                 *ngFor="let product of products | productsFilter: searchText"
                 [product]="product"
-                (orderGood)="orderGood()">
+                (orderGood)="orderGood()"
+            >
             </app-shop-card>
         </div>  
     </div>    

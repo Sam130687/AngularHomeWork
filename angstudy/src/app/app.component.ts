@@ -12,10 +12,6 @@ import { Product } from './mocks/product-info-mosk';
 	styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit{
-//	@Input() public product: ICartProduct = {} as ICartProduct;
-//@Input() public category: ICategory = {} as ICategory;
-//Временно пока не прилетает извне    
-	
 	readonly storeName: string = 'Мой магазинчик на коленке';
 	basketNum: number = 0;
 	readonly products = products;

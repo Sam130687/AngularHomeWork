@@ -1,4 +1,3 @@
-const CompressionPlugin = require('compression-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 module.exports = (config) => {

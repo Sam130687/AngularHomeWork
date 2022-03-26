@@ -9,7 +9,7 @@ import { IProduct } from '../../interface/product';
 })
 export class GoodsCardComponent {
   @Input() public product: IProduct = {} as IProduct;
-	@Output() public orderGood = new EventEmitter();
+  @Output() public orderGood = new EventEmitter();
 
   constructor() { }
 }

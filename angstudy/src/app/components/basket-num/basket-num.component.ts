@@ -8,6 +8,4 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 })
 export class BasketNumComponent {
 	@Input() basketNum: number = 0;
-
-	constructor() {}
 }

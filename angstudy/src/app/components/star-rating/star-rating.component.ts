@@ -17,11 +17,24 @@ export class StarRatingComponent {
 	constructor() {}
 
 	selectStar(index: number): void {
-		if (!this.readOnly){
-			if (this.rate === -1) {
-				this.feedbacksCount ? this.feedbacksCount++ : 1;
-			}
-			this.rate = index;
+		if (this.readOnly) {
+			return;
+		};
+
+		if (this.rate === -1) {
+			this.feedbacksCount ? this.feedbacksCount++ : 1; //this.feedbacksCount может быть undefined
+		}
+
+		this.rate = index;
+	}
+
+	setRate(rate?: number): number {
+		if (typeof(rate) == 'number') {
+			return rate;
+		}
+		else
+		{
+			return 0;
 		}
 	}
 }

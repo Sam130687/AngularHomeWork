@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { environment } from '../environments/environment';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,10 +22,6 @@ import { GoodsCardComponent } from './components/goods-card/goods-card.component
 import { MatTabsModule } from '@angular/material/tabs';
 import { CarouselDirective } from './directives/carousel.directive';
 import { ProductsFilterPipe } from './pipes/products-filter.pipe';
-
-//@ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const baseURL = environment.baseUrl;
 
 /**
  *  NgModule => es6
