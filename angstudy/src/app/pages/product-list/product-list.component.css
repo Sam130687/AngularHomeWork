@@ -21,7 +21,12 @@
 }
 
 .shop-container {
-	display: flex;
-	height: 300px;
+	display: flex;	
 	justify-content: center;
+	align-items: center;
 } 
+
+.carusel-image {
+	height: 300px;
+	width: 600px;
+}

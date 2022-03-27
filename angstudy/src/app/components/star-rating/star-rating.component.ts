@@ -10,8 +10,8 @@ import { stars } from './constants/stars';
 export class StarRatingComponent {
 	readonly stars = stars;
 
-	@Input() public feedbacksCount?: number = 0;
-	@Input() public rate?: number = -1;
+	@Input() public feedbacksCount: number | undefined = 0;
+	@Input() public rate: number | undefined = -1;
 	@Input() public readOnly: boolean = false;
 
 	constructor() {}
@@ -32,9 +32,7 @@ export class StarRatingComponent {
 		if (typeof(rate) == 'number') {
 			return rate;
 		}
-		else
-		{
-			return 0;
-		}
+
+		return 0;
 	}
 }

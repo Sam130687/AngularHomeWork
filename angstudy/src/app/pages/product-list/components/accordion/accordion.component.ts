@@ -8,7 +8,7 @@ import { ICategory } from '../../../../interface/category';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AccordionComponent {
-  @Input() public category: ICategory[] = [];
+  @Input() public category!: ICategory[];
   
   expandedIndex = 0;
 

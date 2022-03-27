@@ -8,16 +8,21 @@
 background-size: cover;
 }*/
 
-/* .mat-card-image{
-  width: 90%;
-}  */
+.mat-card-image{
+  margin: 0px;
+} 
 
 .chevron {
 	cursor: pointer;
+  z-index: 1;
 }
 
 .shop-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.carusel-image {
+  width: 100%;
 }

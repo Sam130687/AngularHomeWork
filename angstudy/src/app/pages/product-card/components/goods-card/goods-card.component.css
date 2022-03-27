@@ -8,8 +8,8 @@
   background-size: cover;
 } */
 
-.mat-card-image{
-  width: 50%;
+.mat-card-lg-image{
+  width: 100%;
 }
 
 .undtitle{
@@ -29,6 +29,7 @@
 .right-side{
   display: flex;
   flex-direction: column;
+  width: 100%;
   /* flex-wrap: wrap; */
   /* justify-content: bl; */
 	/* align-items: flex-start; */
@@ -37,4 +38,9 @@
 .price_button{
   display: flex;
   flex-direction: column;
+}
+
+.footer{
+  margin: 0;
+  margin-bottom: 10px;
 }

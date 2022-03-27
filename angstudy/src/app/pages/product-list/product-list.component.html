@@ -14,7 +14,7 @@
                 *ngxClassworkCarousel="let image of images; next as next; back as back"
                 class="shop-container">
                 <mat-icon class="chevron" (click)="back()">chevron_left</mat-icon>
-                <img [src]="image.url">
+                <img class="carusel-image" [src]="image.url">
                 <mat-icon class="chevron" (click)="next()">chevron_right</mat-icon>
             </div>
         </ng-container>

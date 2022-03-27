@@ -12,6 +12,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatInputModule } from '@angular/material/input';
 import { PipesModule } from '../../pipes/pipes.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DirectiveModule } from '../../directives/directives.module';
@@ -37,6 +38,7 @@ import { StarRatingModule } from 'src/app/components/star-rating/star-rating.mod
     MatFormFieldModule,
     DirectiveModule,
     StarRatingModule,
+    MatInputModule,
   ]
 })
 export class ProductListModule { }

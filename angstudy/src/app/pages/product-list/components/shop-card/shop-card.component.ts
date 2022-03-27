@@ -14,7 +14,7 @@ import { IProduct } from '../../../../interface/product';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShopCardComponent {
-	@Input() public product: IProduct = {} as IProduct;
+	@Input() public product!: IProduct;
 	@Output() public orderGood = new EventEmitter();
 
 	constructor() {}
