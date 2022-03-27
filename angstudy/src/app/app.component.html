@@ -1,14 +1,41 @@
-<app-header [storeName]="storeName">
-    <app-basket-num [basketNum]="basketNum"></app-basket-num>
+<!-- HomeWork 1 -->
+<app-header 
+    [storeName]="storeName"
+    [basketNum]="basketNum"
+>    
+    <mat-form-field appearance="fill">
+        <mat-label>Search</mat-label>
+        <input matInput (input)="onInput($event)" />
+    </mat-form-field>
 </app-header>
-<app-goods-grid>
-    <app-shop-card 
-        [price]="price"
-        [describe]="describe"
-        [image]="image"
-        (orderGood)="orderGood()">
-        <app-star-rating 
-            [totalFeedBack]="totalFeedBack">
-        </app-star-rating>
-    </app-shop-card>
-</app-goods-grid>
+
+<div class="content-body">
+    <app-accordion
+        [category]="category">
+    </app-accordion>
+    <div class="right-side">
+        <ng-container *ngIf="carouselImage$ | async as Images">
+            <div                
+                *ngxClassworkCarousel="let Image of Images; next as next; back as back"
+                class="shop-container">
+                <mat-icon class="chevron" (click)="back()">chevron_left</mat-icon>
+                <img [src]="Image.url">
+                <mat-icon class="chevron" (click)="next()">chevron_right</mat-icon>
+            </div>
+        </ng-container>
+
+        <div class="card-container">
+            <app-shop-card 
+                *ngFor="let product of products | productsFilter: searchText"
+                [product]="product"
+                (orderGood)="orderGood()"
+            >
+            </app-shop-card>
+        </div>  
+    </div>    
+</div>
+
+<!-- HomeWork 2 Goods card-->
+<app-goods-card
+    [product]="productCard">
+</app-goods-card> 

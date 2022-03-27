@@ -1,0 +1,23 @@
+.example-card {
+  width: 300px;
+  display: block;
+  margin: 10px;
+}
+/* 
+.example-header-image {
+background-size: cover;
+}*/
+
+/* .mat-card-image{
+  width: 90%;
+}  */
+
+.chevron {
+	cursor: pointer;
+}
+
+.shop-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

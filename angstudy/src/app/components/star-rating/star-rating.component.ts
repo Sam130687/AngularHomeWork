@@ -1,61 +1,40 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { stars } from './constants/stars'; 
 
 @Component({
-  selector: 'app-star-rating',
-  templateUrl: './star-rating.component.html',
-  styleUrls: ['./star-rating.component.sass']
+	selector: 'app-star-rating',
+	templateUrl: './star-rating.component.html',
+	styleUrls: ['./star-rating.component.css'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class StarRatingComponent implements OnInit {
-  selectedRating = 0;
+export class StarRatingComponent {
+	readonly stars = stars;
 
-  @Input() totalFeedBack: number = 0;
+	@Input() public feedbacksCount?: number = 0;
+	@Input() public rate?: number = -1;
+	@Input() public readOnly: boolean = false;
 
-  stars = [
-    {
-      id: 1,
-      icon: 'star',
-      class: 'star-gray star-hover star'
-    },
-    {
-      id: 2,
-      icon: 'star',
-      class: 'star-gray star-hover star'
-    },
-    {
-      id: 3,
-      icon: 'star',
-      class: 'star-gray star-hover star'
-    },
-    {
-      id: 4,
-      icon: 'star',
-      class: 'star-gray star-hover star'
-    },
-    {
-      id: 5,
-      icon: 'star',
-      class: 'star-gray star-hover star'
-    }
-  ];
+	constructor() {}
 
-  constructor() {}
-  ngOnInit(): void {
-  }
+	selectStar(index: number): void {
+		if (this.readOnly) {
+			return;
+		};
 
-  selectStar(value: number): void{
-    // prevent multiple selection
-    this.stars.filter( (star) => {
-      if ( star.id <= value){
-        star.class = 'star-gold star';
-      }else{
-        star.class = 'star-gray star';
-      }
-      return star;
-    });
+		if (this.rate === -1) {
+			this.feedbacksCount ? this.feedbacksCount++ : 1; //this.feedbacksCount может быть undefined
+		}
 
-    if (this.selectedRating === 0) {
-      this.totalFeedBack++;
-    }
-    this.selectedRating = value;    
-  }
+		this.rate = index;
+	}
+
+	setRate(rate?: number): number {
+		if (typeof(rate) == 'number') {
+			return rate;
+		}
+		else
+		{
+			return 0;
+		}
+	}
 }

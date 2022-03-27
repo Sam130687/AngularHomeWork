@@ -1,6 +1,13 @@
 <div class="star-rating-container star-rating-animation" fxLayout="row" fxLayoutAlign="start center" >
-    <div *ngFor="let star of stars" [ngClass]="[star.class]" (click)="selectStar(star.id)">
-        <mat-icon>{{star.icon}}</mat-icon>       
-    </div> 
-    {{totalFeedBack}} отзывов.
+    <mat-icon
+        *ngFor="let star of stars; index as i"
+        class="star-gray star-hover star"
+        [class.star-gold]="i <= setRate(rate)"
+        (click)="selectStar(i)"
+    >
+        star
+    </mat-icon>  
+    <ng-container *ngIf="feedbacksCount">
+        {{feedbacksCount}} отзывов.
+    </ng-container>
 </div>
