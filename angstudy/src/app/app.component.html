@@ -9,33 +9,39 @@
     </mat-form-field>
 </app-header>
 
-<div class="content-body">
-    <app-accordion
-        [category]="category">
-    </app-accordion>
+<div class="content-body"> 
+    <ng-container *ngIf="categories$ | async as categories;">
+        <app-accordion
+            [category]="categories">
+        </app-accordion>
+    </ng-container>     
     <div class="right-side">
-        <ng-container *ngIf="carouselImage$ | async as Images">
+        <ng-container *ngIf="carouselImage$ | async as images">
             <div                
-                *ngxClassworkCarousel="let Image of Images; next as next; back as back"
+                *ngxClassworkCarousel="let image of images; next as next; back as back"
                 class="shop-container">
                 <mat-icon class="chevron" (click)="back()">chevron_left</mat-icon>
-                <img [src]="Image.url">
+                <img [src]="image.url">
                 <mat-icon class="chevron" (click)="next()">chevron_right</mat-icon>
             </div>
         </ng-container>
 
         <div class="card-container">
-            <app-shop-card 
-                *ngFor="let product of products | productsFilter: searchText"
-                [product]="product"
-                (orderGood)="orderGood()"
-            >
-            </app-shop-card>
+            <ng-container *ngIf="products$ | async as products;">
+                <app-shop-card 
+                    *ngFor="let product of products | productsFilter: searchText"
+                    [product]="product"
+                    (orderGood)="orderGood()"
+                >
+                </app-shop-card>
+            </ng-container>    
         </div>  
     </div>    
 </div>
 
 <!-- HomeWork 2 Goods card-->
-<app-goods-card
-    [product]="productCard">
-</app-goods-card> 
+<ng-container *ngIf="productCard$ | async as productCard;">
+    <app-goods-card
+        [product]="productCard">
+    </app-goods-card> 
+</ng-container>
