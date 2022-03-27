@@ -1,5 +1,5 @@
 import { Component, EventEmitter,	Input, Output, ChangeDetectionStrategy } from '@angular/core';
-import { IProduct } from '../../interface/product';
+import { IProduct } from '../../../../interface/product';
 
 @Component({
   selector: 'app-goods-card',
@@ -8,7 +8,7 @@ import { IProduct } from '../../interface/product';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GoodsCardComponent {
-  @Input() public product: IProduct = {} as IProduct;
+  @Input() public product!: IProduct;
   @Output() public orderGood = new EventEmitter();
 
   constructor() { }

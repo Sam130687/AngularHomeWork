@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-import { ICategory } from '../../interface/category';
+import { ICategory } from '../../../../interface/category';
 
 @Component({
   selector: 'app-accordion',
@@ -8,7 +8,7 @@ import { ICategory } from '../../interface/category';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AccordionComponent {
-  @Input() public category: ICategory[] = [];
+  @Input() public category!: ICategory[];
   
   expandedIndex = 0;
 
