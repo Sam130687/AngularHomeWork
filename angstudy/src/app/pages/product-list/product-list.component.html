@@ -2,31 +2,32 @@
 	<mat-label>Search</mat-label>
 	<input matInput (input)="onInput($event)" />
 </mat-form-field>
-<div class="content-body"> 
-    <ng-container *ngIf="categories$ | async as categories;">
-        <app-accordion
-            [category]="categories">
-        </app-accordion>
-    </ng-container>     
-    <div class="right-side">
-        <ng-container *ngIf="carouselImage$ | async as images">
-            <div                
-                *ngxClassworkCarousel="let image of images; next as next; back as back"
-                class="shop-container">
-                <mat-icon class="chevron" (click)="back()">chevron_left</mat-icon>
-                <img class="carusel-image" [src]="image.url">
-                <mat-icon class="chevron" (click)="next()">chevron_right</mat-icon>
-            </div>
-        </ng-container>
+<div class="content-body">
+	<ng-container *ngIf="categories$ | async as categories">
+		<app-accordion [category]="categories"> </app-accordion>
+	</ng-container>
+	<div class="right-side">
+		<ng-container *ngIf="carouselImage$ | async as images">
+			<div
+				*ngxClassworkCarousel="let image of images; next as next; back as back"
+				class="shop-container"
+			>
+				<mat-icon class="chevron" (click)="back()">chevron_left</mat-icon>
+				<img class="carusel-image" [src]="image.url" />
+				<mat-icon class="chevron" (click)="next()">chevron_right</mat-icon>
+			</div>
+		</ng-container>
 
-        <div class="card-container">
-            <ng-container *ngIf="products$ | async as products;">
-                <app-shop-card 
-                    *ngFor="let product of products | productsFilter: searchText"
-                    [product]="product"
-                >
-                </app-shop-card>
-            </ng-container>    
-        </div>  
-    </div>    
+		<div class="card-container">
+			<ng-container *ngIf="products$ | async as products">
+				<app-shop-card
+					*ngFor="let product of products | productsFilter: searchText"
+					[routerLink]="'/product/' + product.id"
+					[product]="product"
+					(addToBasket)="addProduct($event)"
+				>
+				</app-shop-card>
+			</ng-container>
+		</div>
+	</div>
 </div>

@@ -1,16 +1,10 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor
-} from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 
 @Injectable()
 export class BaseInterceptor implements HttpInterceptor {
 	intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-		console.log('BaseInterceptor send');
 		return next
 			.handle(
 				request.clone({
@@ -20,4 +14,3 @@ export class BaseInterceptor implements HttpInterceptor {
 			.pipe(tap(() => console.log('BaseInterceptor - tap')));
 	}
 }
-

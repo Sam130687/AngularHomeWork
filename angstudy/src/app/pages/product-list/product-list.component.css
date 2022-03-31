@@ -2,7 +2,7 @@
 	width: 100%;
 }
 
-.content-body{
+.content-body {
 	display: flex;
 	/* flex-direction: column; */
 	/* flex-wrap: wrap; */
@@ -14,17 +14,17 @@
 	/* flex-direction: column; */
 	flex-wrap: wrap;
 	/* justify-content: space-around; */
-} 
+}
 
 .chevron {
 	cursor: pointer;
 }
 
 .shop-container {
-	display: flex;	
+	display: flex;
 	justify-content: center;
 	align-items: center;
-} 
+}
 
 .carusel-image {
 	height: 300px;

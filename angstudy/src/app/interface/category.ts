@@ -1,11 +1,11 @@
 export interface ICategory {
-    id: string;
-    name: string;
-    subCategories: ISubCategory[];
-  }
+	id: string;
+	name: string;
+	subCategories: ISubCategory[];
+}
 
 export interface ISubCategory {
-    id: string;
-    name: string;
-    category: string;
-  }
+	id: string;
+	name: string;
+	category: string;
+}

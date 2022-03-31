@@ -1,9 +1,15 @@
 <mat-toolbar color="primary">
-    <button mat-mini-fab color="Warn" aria-label="Example icon button with a menu icon">
-        <mat-icon>menu</mat-icon>
-    </button>
-    <span>{{ storeName }}</span>
-    <span class="example-spacer"></span>
-    <ng-content></ng-content>
-    <app-basket-num [basketNum]="basketNum"></app-basket-num>
+	<button mat-mini-fab color="Warn" aria-label="Example icon button with a menu icon">
+		<mat-icon>menu</mat-icon>
+	</button>
+	<span>{{ storeName }}</span>
+	<span class="example-spacer"></span>
+	<ng-content></ng-content>
+	<ng-container *ngIf="(basket$ | async)?.length as arr_length; else simpl">
+		<app-basket-num [basketNum]="arr_length"></app-basket-num> 
+	</ng-container>
 </mat-toolbar>
+
+<ng-template #simpl>
+	<app-basket-num></app-basket-num> 
+</ng-template>

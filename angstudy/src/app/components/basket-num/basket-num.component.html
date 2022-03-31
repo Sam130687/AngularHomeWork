@@ -1,11 +1,9 @@
-<mat-icon matBadge={{basketNum}} matBadgeColor="warn"> 
-    <img 
-      loading="auto" 
-      src="assets/icons/icon-basket.svg"
-      alt="favorite" 
-    />
-  </mat-icon>
-  <!-- Include text description of the icon's meaning for screen-readers -->
-  <span class="cdk-visually-hidden">
-    Корзина
-  </span>
+<mat-icon 
+	matBadge="{{ basketNum }}" 
+	matBadgeColor="warn"
+	[routerLink]="'/basket'"
+	>
+	<img loading="auto" src="assets/icons/icon-basket.svg" alt="favorite" />
+</mat-icon>
+<!-- Include text description of the icon's meaning for screen-readers -->
+<span class="cdk-visually-hidden"> Корзина </span>

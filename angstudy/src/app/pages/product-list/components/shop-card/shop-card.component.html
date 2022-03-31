@@ -1,25 +1,27 @@
-<mat-card class="example-card" (click)="putOnBusket()">
-    <!-- тут какая то ошибка со стилями, не пойму как исправить. отображается тока правая стрелка в карусели -->
-    <ng-container *ngIf="product?.images as images">
-      <div
-        *ngxClassworkCarousel="let image of images; next as next; back as back"
-        class="shop-container"
-      >
-        <mat-icon class="chevron" (click)="back()">chevron_left</mat-icon>
-        <img class="carusel-image" mat-card-image [src]="image.url">
-        <mat-icon class="chevron" (click)="next()">chevron_right</mat-icon>
-      </div>
-    </ng-container>
-    <!-- <img mat-card-image [src]="product.images[0]?.url" alt="product.name"> -->
-    <mat-card-content>
-      <p>{{product?.name}}</p> 
-    </mat-card-content>
-   <app-star-rating 
-      [feedbacksCount]="product?.feedbacksCount"
-      (click)="$event.stopPropagation()"
-    >       
-    </app-star-rating>
-    <strong>
-      {{product?.price | currency}}
-    </strong>
+<mat-card class="example-card">
+	<!-- тут какая то ошибка со стилями, не пойму как исправить. отображается тока правая стрелка в карусели -->
+	<ng-container *ngIf="product?.images as images">
+		<div
+			*ngxClassworkCarousel="let image of images; next as next; back as back"
+			class="shop-container"
+		>
+			<mat-icon class="chevron" (click)="back()">chevron_left</mat-icon>
+			<img class="carusel-image" mat-card-image [src]="image.url" />
+			<mat-icon class="chevron" (click)="next()">chevron_right</mat-icon>
+		</div>
+	</ng-container>
+	<!-- <img mat-card-image [src]="product.images[0]?.url" alt="product.name"> -->
+	<mat-card-content>
+		<p>{{ product?.name }}</p>
+	</mat-card-content>
+	<app-star-rating [feedbacksCount]="product?.feedbacksCount" (click)="$event.stopPropagation()">
+	</app-star-rating>
+	<strong>
+		{{ product?.price | currency }}
+	</strong>
+	<mat-card-actions>
+		<!-- <button mat-button>LIKE</button>
+		<button mat-button>SHARE</button> -->
+		<button mat-button (click)="onAddToBasket($event)">Add to basket</button>
+	</mat-card-actions>
 </mat-card>

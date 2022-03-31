@@ -5,10 +5,9 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class ProductsService {
+	constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getProducts$(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>('/products');
-  }
+	getProducts$(): Observable<IProduct[]> {
+		return this.http.get<IProduct[]>('/products');
+	}
 }

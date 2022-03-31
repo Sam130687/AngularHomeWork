@@ -1,5 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import { stars } from './constants/stars'; 
+import { stars } from './constants/stars';
 
 @Component({
 	selector: 'app-star-rating',
@@ -19,7 +19,7 @@ export class StarRatingComponent {
 	selectStar(index: number): void {
 		if (this.readOnly) {
 			return;
-		};
+		}
 
 		if (this.rate === -1) {
 			this.feedbacksCount ? this.feedbacksCount++ : 1; //this.feedbacksCount может быть undefined
@@ -29,7 +29,7 @@ export class StarRatingComponent {
 	}
 
 	setRate(rate?: number): number {
-		if (typeof(rate) == 'number') {
+		if (typeof rate == 'number') {
 			return rate;
 		}
 

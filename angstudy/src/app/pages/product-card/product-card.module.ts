@@ -11,21 +11,17 @@ import { MatListModule } from '@angular/material/list';
 import { DirectiveModule } from 'src/app/directives/directives.module';
 import { StarRatingModule } from 'src/app/components/star-rating/star-rating.module';
 
-
 @NgModule({
-  declarations: [
-    ProductCardComponent,
-    GoodsCardComponent,
-  ],
-  imports: [
-    CommonModule,
-    ProductCardRoutingModule,
-    MatCardModule,
-    MatIconModule,
-    MatTabsModule,
-    MatListModule,
-    DirectiveModule,
-    StarRatingModule,
-  ]
+	declarations: [ProductCardComponent, GoodsCardComponent],
+	imports: [
+		CommonModule,
+		ProductCardRoutingModule,
+		MatCardModule,
+		MatIconModule,
+		MatTabsModule,
+		MatListModule,
+		DirectiveModule,
+		StarRatingModule,
+	],
 })
-export class ProductCardModule { }
+export class ProductCardModule {}

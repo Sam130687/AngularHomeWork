@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { NotFoundModule } from './pages/not-found/not-found.module';
 
 /**
  *  NgModule => es6
@@ -25,11 +26,7 @@ import { MatCardModule } from '@angular/material/card';
  */
 
 @NgModule({
-	declarations: [
-		AppComponent,	
-		BasketNumComponent,
-		HeaderComponent,
-	],	
+	declarations: [AppComponent, BasketNumComponent, HeaderComponent],
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,
@@ -38,7 +35,8 @@ import { MatCardModule } from '@angular/material/card';
 		MatIconModule,
 		MatBadgeModule,
 		MatToolbarModule,
-		MatCardModule,		
+		MatCardModule,
+		NotFoundModule,
 	],
 	providers: [
 		ProductsService,

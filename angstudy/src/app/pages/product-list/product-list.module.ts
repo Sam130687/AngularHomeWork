@@ -17,28 +17,26 @@ import { PipesModule } from '../../pipes/pipes.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DirectiveModule } from '../../directives/directives.module';
 import { StarRatingModule } from 'src/app/components/star-rating/star-rating.module';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [
-    ProductListComponent,
-		ShopCardComponent,
-		AccordionComponent,
-  ],
-  imports: [
-    CommonModule, 
-    ProductListRoutingModule,
-    CdkAccordionModule,
+	declarations: [ProductListComponent, ShopCardComponent, AccordionComponent],
+	imports: [
+		CommonModule,
+		ProductListRoutingModule,
+		CdkAccordionModule,
 		MatToolbarModule,
 		MatIconModule,
 		MatListModule,
 		MatCardModule,
 		MatBadgeModule,
 		MatMenuModule,
-    PipesModule,
-    MatFormFieldModule,
-    DirectiveModule,
-    StarRatingModule,
-    MatInputModule,
-  ]
+		PipesModule,
+		MatFormFieldModule,
+		DirectiveModule,
+		StarRatingModule,
+		MatInputModule,
+		MatButtonModule,
+	],
 })
-export class ProductListModule { }
+export class ProductListModule {}

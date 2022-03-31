@@ -1,0 +1,16 @@
+.basket-cards{
+	display: flex;
+}
+
+.example-card {
+	max-width: 400px;
+	margin-bottom: 8px;	
+  }
+
+.row_position {
+	display: inline-flex;
+}
+
+.prod-count {
+	margin-top: 15px;
+}

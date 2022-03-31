@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 	readonly storeName: string = 'Мой магазинчик на коленке';
-	basketNum: number = 0;
 }

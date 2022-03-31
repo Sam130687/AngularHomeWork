@@ -1,4 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { BasketService } from 'src/app/services/basket.service';
 
 @Component({
 	selector: 'app-header',
@@ -8,7 +9,8 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 })
 export class HeaderComponent {
 	@Input() storeName!: string;
-	@Input() basketNum: number = 0;
 
-	constructor() {}
+	constructor(private basketService: BasketService) {}
+
+	public basket$ = this.basketService.basket$;	
 }

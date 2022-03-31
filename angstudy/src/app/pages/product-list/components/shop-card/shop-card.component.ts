@@ -1,10 +1,4 @@
-import {
-	Component,
-	EventEmitter,
-	Input,
-	Output,
-	ChangeDetectionStrategy,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { IProduct } from '../../../../interface/product';
 
 @Component({
@@ -15,11 +9,10 @@ import { IProduct } from '../../../../interface/product';
 })
 export class ShopCardComponent {
 	@Input() public product!: IProduct;
-	@Output() public orderGood = new EventEmitter();
+	@Output() addToBasket = new EventEmitter<IProduct>();
 
-	constructor() {}
-
-	putOnBusket() {
-		this.orderGood.emit();
+	onAddToBasket(event: Event) {
+		event.stopPropagation();
+		this.addToBasket.emit(this.product);
 	}
 }

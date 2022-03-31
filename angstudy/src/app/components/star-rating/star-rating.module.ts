@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 
 @NgModule({
 	declarations: [StarRatingComponent],
-    imports: [CommonModule, MatIconModule,],
+	imports: [CommonModule, MatIconModule],
 	exports: [StarRatingComponent],
 })
 export class StarRatingModule {}

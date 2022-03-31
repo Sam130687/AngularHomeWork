@@ -1,0 +1,42 @@
+<mat-list role="list">
+    <ng-container class="basket-cards" *ngIf="(basket$ | async) as basket; else simpl">
+        <!-- <mat-list-item *ngFor="let product of getUnicProductsList(basket)" role="listitem"> -->
+            <mat-card class="example-card" *ngFor="let product of getUnicProductsList(basket)">
+                <mat-card-title-group>
+                  <mat-card-title>{{product.prod.name}}</mat-card-title>
+
+                  <img mat-card-md-image [src]= "product.prod.images[0]?.url">
+                </mat-card-title-group>
+                <mat-card-content>
+                    <p class="prod-count">
+                        Цена за единицу товара: {{product.prod.price | currency }}
+                    </p> 
+                    <p class="prod-count">
+                        Общая стоимость: {{product.count*product.prod.price | currency }}
+                    </p>                    
+                </mat-card-content>
+                <mat-card-actions>
+                    <div class="row_position">
+                        <button mat-button
+                            (click)="dropProduct(product.prod)"
+                        >
+                            -
+                        </button> 
+                        <p class="prod-count">{{product.count}}</p>
+                        <button mat-button
+                            (click)="addProduct(product.prod)"
+                        >
+                            +
+                        </button>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+        <!-- </mat-list-item> -->
+    </ng-container>
+</mat-list>
+
+<ng-template #simpl>
+	<p>Товар не выбран</p>
+</ng-template>
+
+
