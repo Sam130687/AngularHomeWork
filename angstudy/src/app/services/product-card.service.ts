@@ -8,6 +8,6 @@ export class ProductCardService {
 	constructor(private http: HttpClient) {}
 
 	getProduct$(productId: string): Observable<IProduct> {
-		return this.http.get<IProduct>('/product/'+productId);
+		return this.http.get<IProduct>(`/product/${productId}`);
 	}
 }

@@ -5,8 +5,8 @@
 	<span>{{ storeName }}</span>
 	<span class="example-spacer"></span>
 	<ng-content></ng-content>
-	<ng-container *ngIf="(basket$ | async)?.length as arr_length; else simpl">
-		<app-basket-num [basketNum]="arr_length"></app-basket-num> 
+	<ng-container *ngIf="(basket$ | async)?.length as arrLength; else simpl">
+		<app-basket-num [basketNum]="arrLength"></app-basket-num> 
 	</ng-container>
 </mat-toolbar>
 

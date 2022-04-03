@@ -30,6 +30,18 @@ export class BasketListComponent {
       return _arr;
     }
 
+    // const initialValue : IProduct = {};
+    // const prodArray = products.reduce(function(acc, cur){
+    //   acc[cur.id] = acc[cur.id] || {
+    //     prod : cur,
+    //     count : 0
+    //   };
+    //   acc[cur.id].count = acc[cur.id].count + 1;
+    //   return acc;
+    // }, initialValue);
+    // _arr = Object.values(prodArray);
+    // return _arr;
+
     products.forEach((item) => {
       let prodItem = _arr.find(elem => elem.prod.id == item.id);
 

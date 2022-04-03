@@ -1,8 +1,8 @@
 <mat-icon 
-	matBadge="{{ basketNum }}" 
+	[matBadge]="basketNum" 
 	matBadgeColor="warn"
-	[routerLink]="'/basket'"
-	>
+	routerLink="/basket"
+>
 	<img loading="auto" src="assets/icons/icon-basket.svg" alt="favorite" />
 </mat-icon>
 <!-- Include text description of the icon's meaning for screen-readers -->
