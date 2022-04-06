@@ -29,6 +29,7 @@ export class BasketService {
         // console.log(_basket);
 
 		// this._basket$.next([..._basket]);
+		// debugger;
 		const basket = this._basket$.value.map((value, index) => ({
 			...value,
 			count: counter[index],

@@ -1,6 +1,6 @@
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Observable, tap } from 'rxjs';
+import { Observable, Subject, take, takeUntil, tap } from 'rxjs';
 import { IProduct } from '../../../interface/product';
 import { BasketService } from '../../../services/basket.service';
 
@@ -15,9 +15,11 @@ import { BasketService } from '../../../services/basket.service';
   styleUrls: ['./basket-list.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BasketListComponent implements OnInit {
+export class BasketListComponent implements OnInit, OnDestroy {
+  private destroy$ = new Subject<void>();
 
 	basket$: Observable<IProduct[]> = this.basketService.basket$.pipe(
+    take(1),
 		tap(basket => {
 			this.form.setControl(
 				'counters',
@@ -39,9 +41,16 @@ export class BasketListComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-      this.form.valueChanges.subscribe((count)=>{
+      this.form.valueChanges.pipe(
+        takeUntil(this.destroy$),
+      ).subscribe((count)=>{
         this.basketService.updateCountInBasket(count.counters);
       });
+    }
+
+    ngOnDestroy(): void {
+      this.destroy$.next();
+      this.destroy$.complete();
     }
 
   // getUnicProductsList(products : IProduct[]): IProducts[]{
