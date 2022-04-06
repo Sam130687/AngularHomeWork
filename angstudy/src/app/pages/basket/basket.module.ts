@@ -8,6 +8,9 @@ import { MatListModule } from '@angular/material/list';
 import { BasketListComponent } from './basket-list/basket-list.component';
 import { AddressComponent } from './address/address.component';
 import { MatCardModule } from '@angular/material/card';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CounterInputModule } from 'src/app/components/counter-input/counter-input.module';
+
 
 
 @NgModule({
@@ -22,6 +25,9 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule, 
     MatListModule,
     MatCardModule,
+    FormsModule,
+		ReactiveFormsModule,
+    CounterInputModule,
   ]
 })
 export class BasketModule { }

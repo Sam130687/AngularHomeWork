@@ -14,6 +14,6 @@ export class GoodsCardComponent {
 	constructor(private basketService: BasketService) {}
 
 	addProduct(product: IProduct) {
-		this.basketService.addProductToBasket(product).subscribe(error => console.log(error));
-	}
+		this.basketService.addProductToBasket(product);//.subscribe(error => console.log(error));
+	};
 }

@@ -38,6 +38,6 @@ export class ProductListComponent implements OnInit {
 	}
 
 	addProduct(product: IProduct) {
-		this.basketService.addProductToBasket(product).subscribe(error => console.log(error));
+		this.basketService.addProductToBasket(product);//.subscribe(error => console.log(error));
 	}
 }
