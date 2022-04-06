@@ -24,7 +24,7 @@ export class BasketListComponent {
     ) {}
 
   getUnicProductsList(products : IProduct[]): IProducts[]{
-    let _arr: IProducts[] = [];
+    const _arr: IProducts[] = [];
 
     if (!products) {
       return _arr;
