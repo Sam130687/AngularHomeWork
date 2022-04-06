@@ -19,18 +19,24 @@ export class BasketService {
 		this._basket$.next([...this._basket$.value, product]);
 	}
 
-	addArrayToBasket(counter: []) {
-		console.log(counter);
-		 const _basket = this._basket$.value.map((value, index)=>{
-			const val = value;
-			//console.log('bravo: ' + counter+ ' ' + index);
-			val.count = counter[index];
-			return val;
-		});
-        console.log(_basket);
+	updateCountInBasket(counter: []) {
+		// console.log(counter);
+		//  const _basket = this._basket$.value.map((value, index)=>{
+		// 	const val = value;
+		// 	val.count = counter[index];
+		// 	return val;
+		// });
+        // console.log(_basket);
 
+		// this._basket$.next([..._basket]);
+		const basket = this._basket$.value.map((value, index) => ({
+			...value,
+			count: counter[index],
+		}))
 
-		this._basket$.next([..._basket]);
+		console.log(basket);
+
+		this._basket$.next(basket);
 	}
 
 	// get basket$(): Observable<IProduct[]> {

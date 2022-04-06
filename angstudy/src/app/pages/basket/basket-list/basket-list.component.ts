@@ -40,7 +40,7 @@ export class BasketListComponent implements OnInit {
 
     ngOnInit(): void {
       this.form.valueChanges.subscribe((count)=>{
-        this.basketService.addArrayToBasket(count.counters);
+        this.basketService.updateCountInBasket(count.counters);
       });
     }
 
