@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Observable, Subject, take, takeUntil, tap } from 'rxjs';
+import { Observable, Subject, take, takeUntil } from 'rxjs';
 import { IProduct } from '../../../interface/product';
 import { BasketService } from '../../../services/basket.service';
 
@@ -18,19 +18,8 @@ import { BasketService } from '../../../services/basket.service';
 export class BasketListComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
 
-	basket$: Observable<IProduct[]> = this.basketService.basket$.pipe(
-    take(1),
-		tap(basket => {
-			this.form.setControl(
-				'counters',
-				this.formBuilder.array(
-					new Array(basket.length)
-						.fill(1)
-						.map((value, index) => [basket[index]?.count ? basket[index]?.count : value , [Validators.max(10), Validators.min(0)]]),
-				),
-			);
-		}),
-	);
+	basket$: Observable<IProduct[]> = this.basketService.basket$;
+
 	form = this.formBuilder.group({
 		counters: this.formBuilder.array([]),
 	});
@@ -40,18 +29,32 @@ export class BasketListComponent implements OnInit, OnDestroy {
       private formBuilder: FormBuilder,
     ) {}
 
-    ngOnInit(): void {
-      this.form.valueChanges.pipe(
-        takeUntil(this.destroy$),
-      ).subscribe((count)=>{
-        this.basketService.updateCountInBasket(count.counters);
-      });
-    }
+// take(1), это говорит что один раз вызывается
+  ngOnInit(): void {
+    this.basket$.pipe(take(1)).subscribe(
+      basket => {
+        this.form.setControl(
+          'counters',
+          this.formBuilder.array(
+            new Array(basket.length)
+              .fill(1)
+              .map((value, index) => [basket[index]?.count ? basket[index]?.count : value , [Validators.max(10), Validators.min(0)]]),
+          ),
+        );
+      }
+    );
+    
+    this.form.valueChanges.pipe(
+      takeUntil(this.destroy$),
+    ).subscribe((count)=>{
+      this.basketService.updateCountInBasket(count.counters);
+    });
+  }
 
-    ngOnDestroy(): void {
-      this.destroy$.next();
-      this.destroy$.complete();
-    }
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 
   // getUnicProductsList(products : IProduct[]): IProducts[]{
   //   const _arr: IProducts[] = [];
