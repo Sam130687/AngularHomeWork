@@ -16,6 +16,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/reducers';
 import { NotFoundModule } from './pages/not-found/not-found.module';
 
 /**
@@ -37,6 +39,7 @@ import { NotFoundModule } from './pages/not-found/not-found.module';
 		MatToolbarModule,
 		MatCardModule,
 		NotFoundModule,
+		StoreModule.forRoot(reducers),
 	],
 	providers: [
 		ProductsService,
