@@ -20,10 +20,6 @@
 				"build": {
 					"builder": "@angular-builders/custom-webpack:browser",
 					"options": {
-						"customWebpackConfig": {
-							"path": "./webpack.partial.js",
-							"replaceDuplicatePlugins": true
-						},
 						"outputPath": "dist/angstudy",
 						"index": "src/index.html",
 						"main": "src/main.ts",

@@ -1,0 +1,35 @@
+<form [formGroup]="form">
+    <mat-list role="list" formArrayName="counters">
+        <ng-container class="basket-cards" *ngIf="(basket$ | async) as basket; else simpl">
+            <!-- <mat-list-item *ngFor="let product of getUnicProductsList(basket)" role="listitem"> -->
+                <mat-card class="example-card" *ngFor="let product of basket; index as index">
+                    <mat-card-title-group>
+                    <mat-card-title>{{product.name}}</mat-card-title>
+
+                    <img mat-card-md-image [src]= "product.images[0]?.url">
+                    </mat-card-title-group>
+                    <mat-card-content>
+                        <p class="prod-count">
+                            Цена за единицу товара: {{product.price | currency }}
+                        </p> 
+                        <p class="prod-count">
+                            Общая стоимость: {{(product.count ? product.count : 0) *product.price | currency }}
+                        </p>                    
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <app-counter-input
+                            [formControlName]="index"
+                            [increment]="1"                     
+                        ></app-counter-input> 
+                    </mat-card-actions>
+                </mat-card>
+            <!-- </mat-list-item> -->
+        </ng-container>
+    </mat-list>
+</form>
+
+<ng-template #simpl>
+	<p>Товар не выбран</p>
+</ng-template>
+
+

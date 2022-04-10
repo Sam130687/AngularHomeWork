@@ -1,4 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { BasketService } from 'src/app/services/basket.service';
+import { IProduct } from 'src/app/interface/product';
 
 @Component({
 	selector: 'app-header',
@@ -8,7 +10,16 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 })
 export class HeaderComponent {
 	@Input() storeName!: string;
-	@Input() basketNum: number = 0;
 
-	constructor() {}
+	constructor(private basketService: BasketService) {}
+
+	public basket$ = this.basketService.basket$;	
+
+	getCountProducts(basketGoods: IProduct[]): number {
+		if (basketGoods.length > 0) {
+			return basketGoods.reduce((summ, value) => summ + (value?.count || 0), 0)
+		}
+
+		return 0;
+	} 
 }

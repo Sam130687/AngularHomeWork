@@ -1,5 +1,5 @@
 export interface IProduct {
-	id: string; 
+	id: string;
 	subCategory: string;
 	feedbacksCount: number;
 	count?: number;
@@ -12,43 +12,43 @@ export interface IProduct {
 	images: IProductImage[];
 	rating: number;
 	brand?: string;
-  }
-  export interface IProductsState {
+}
+export interface IProductsState {
 	items: IProduct[];
 	loading: boolean;
 	prices: IMinMaxPrice;
-  }
-  
-  export interface IProductApi {
+}
+
+export interface IProductApi {
 	items: IProduct[];
 	prices: IMinMaxPrice;
-  }
-  export interface IMinMaxPrice {
+}
+export interface IMinMaxPrice {
 	min: number;
 	max: number;
-  }
-  export interface IFeedback {
+}
+export interface IFeedback {
 	id: string;
 	rate?: number;
 	product?: string;
 	advantages?: string;
 	limitations?: string;
 	description?: string;
-  }
-  
-  export interface IProductImage {
+}
+
+export interface IProductImage {
 	url: string;
 	source: string;
-  }
-  
-  interface ICharacteristics {
+}
+
+interface ICharacteristics {
 	title: string;
 	items: ICharacteristic[];
 	isExtended?: boolean;
-  }
-  
-  interface ICharacteristic {
+}
+
+interface ICharacteristic {
 	name: string;
 	value: string;
 	isExtended?: boolean;
-  }
+}

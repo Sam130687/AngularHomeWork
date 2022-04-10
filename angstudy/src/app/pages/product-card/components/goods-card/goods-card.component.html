@@ -1,0 +1,74 @@
+<mat-card class="example-card">
+	<div class="left-side">
+		<ng-container *ngIf="product.images as Images">
+			<div
+				*ngxClassworkCarousel="let Image of Images; next as next; back as back"
+				class="shop-container"
+			>
+				<mat-icon class="chevron" (click)="back()">chevron_left</mat-icon>
+				<img mat-card-lg-image [src]="Image.url" />
+				<mat-icon class="chevron" (click)="next()">chevron_right</mat-icon>
+			</div>
+		</ng-container>
+	</div>
+
+	<div class="right-side">
+		<mat-card-title>
+			{{ product?.name }}
+		</mat-card-title>
+		<app-star-rating
+			[feedbacksCount]="product?.feedbacksCount"
+			(click)="$event.stopPropagation()"
+		>
+		</app-star-rating>
+
+		<mat-card-title-group>
+			<div>
+				<p class="undtitle">Характеристики</p>
+
+				<ul *ngFor="let characteristic of product?.characteristics">
+					<li>
+						{{ characteristic.title }}
+						<ul *ngFor="let item of characteristic.items">
+							<li>
+								{{ item.name + ': ' + item.value }}
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="price_button">
+				<strong>
+					{{ product?.price | currency }}
+				</strong>
+				<button 
+					mat-raised-button color="primary"
+					(click)="addProduct(product)"
+				>
+					Добавить в корзину
+				</button>
+			</div>
+		</mat-card-title-group>
+
+		<mat-card-footer class="footer">
+			<mat-tab-group>
+				<mat-tab label="Описание">
+					{{ product?.description }}
+				</mat-tab>
+				<mat-tab label="Отзывы {{ product?.feedbacksCount }}">
+					<mat-list *ngFor="let feedback of product?.feedbacks">
+						<mat-list-item>
+							<app-star-rating
+								[readOnly]="true"
+								[rate]="feedback.rate"
+								(click)="$event.stopPropagation()"
+							>
+							</app-star-rating>
+							<p class="feedback">{{ feedback.advantages }}</p>
+						</mat-list-item>
+					</mat-list>
+				</mat-tab>
+			</mat-tab-group>
+		</mat-card-footer>
+	</div>
+</mat-card>

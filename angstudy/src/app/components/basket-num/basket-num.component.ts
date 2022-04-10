@@ -7,5 +7,5 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BasketNumComponent {
-	@Input() basketNum: number = 0;
+	@Input() basketNum!: number;
 }

@@ -1,0 +1,28 @@
+.example-card {
+	width: 300px;
+	display: block;
+	margin: 10px;
+}
+/* 
+.example-header-image {
+background-size: cover;
+}*/
+
+.mat-card-image {
+	margin: 0px;
+}
+
+.chevron {
+	cursor: pointer;
+	z-index: 1;
+}
+
+.shop-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.carusel-image {
+	width: 100%;
+}

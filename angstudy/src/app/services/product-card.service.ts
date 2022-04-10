@@ -7,7 +7,7 @@ import { IProduct } from '../interface/product';
 export class ProductCardService {
 	constructor(private http: HttpClient) {}
 
-	getProduct$(): Observable<IProduct> {
-		return this.http.get<IProduct>('/product');
+	getProduct$(productId: string): Observable<IProduct> {
+		return this.http.get<IProduct>(`/product/${productId}`);
 	}
 }
