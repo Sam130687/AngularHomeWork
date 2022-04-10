@@ -15,11 +15,9 @@ export class HeaderComponent {
 
 	public basket$ = this.basketService.basket$;	
 
-	getCountProducts(arr: IProduct[]): number {
-		let x = 0;
-		if (arr.length > 0) {
-			let res = arr.map((value) => x += value.count ? value.count : 0, x).reverse()[0];
-			return res ? res : 0;
+	getCountProducts(basketGoods: IProduct[]): number {
+		if (basketGoods.length > 0) {
+			return basketGoods.reduce((summ, value) => summ + (value?.count || 0), 0)
 		}
 
 		return 0;

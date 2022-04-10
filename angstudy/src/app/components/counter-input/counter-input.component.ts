@@ -75,6 +75,6 @@ export class CounterInputComponent implements ControlValueAccessor, Validator {
 	}
 
 	validate(): ValidationErrors | null {
-		return { error: 'error' };
+		return null;
 	}
 }
